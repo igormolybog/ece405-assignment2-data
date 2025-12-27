@@ -1,9 +1,8 @@
-# CS336 Spring 2024 Assignment 1: Basics
+# CS336 Spring 2025 Assignment 1: Basics
 
-This folder contains an optimized implementation of the model from assignment 1,
-so you can do assignment 4 without having done assignment 1. **If you've
-completed assignment 1, feel free to replace the contents of this directory with
-your own implementation.**
+This folder contains an optimized implementation of the model from assignment 1.
+We strongly suggest that when testing out the usefulness of your filtered pretraining data, 
+you use this implementation, since this is what we will use to evaluate leaderboard submissions.
 
-Note that this is not a complete implementation of assignment 1, just the bits
-that are carried forward for assignment 4.
+Note that this is not a complete implementation of assignment 1, just a minimal implementation
+of the trainer that is needed for assignment 4.

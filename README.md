@@ -1,10 +1,10 @@
-# UHM ECE 496B Spring 2025 Assignment 2: Data
+# UHM ECE 405 Spring 2026 Assignment 2: Data
 
-This asignment is created from Assignment 4 of [CS336 at Stanford taught in Spring 2024](https://stanford-cs336.github.io/spring2024/). 
+This asignment is created from Assignment 4 of [CS336 at Stanford taught in Spring 2025](https://stanford-cs336.github.io/spring2025/). 
 For the full description of the original assignment, see the assignment handout at
-[cs336_spring2024_assignment4_data.pdf](./cs336_spring2024_assignment4_data.pdf)
+[cs336_spring2025_assignment4_data.pdf](./cs336_spring2025_assignment4_data.pdf)
 
-Check out useful [lectures from CS336 at Stanford](https://github.com/stanford-cs336/spring2024-lectures).
+Check out useful [lectures from CS336 at Stanford](https://github.com/stanford-cs336/spring2025-lectures).
 
 If you see any issues with the assignment handout or code, please feel free to
 raise a GitHub issue or open a pull request with a fix. Any improvements of the existing codebase
@@ -15,59 +15,42 @@ raise a GitHub issue or open a pull request with a fix. Any improvements of the 
 This directory is organized as follows:
 
 - [`./cs336-basics`](./cs336-basics): directory containing a module
-  `cs336_basics` and its associated `setup.py`. This module should contain your
-  from-scratch language model from assignment 1. At this point, **you are free
-  to optimize this model however you wish**---feel free to replace your
-  hand-crafted components with PyTorch built-ins wherever you like.
-- [`./cs336-data`](./cs336-data): directory containing a module
-  `cs336_data` and its associated `setup.py`. In this module, you will
-  implement code to filter and preprocess data.
+  `cs336_basics` and its associated `pyproject.toml`. This module contains the staff 
+  implementation of the language model from assignment 1. You will use this training code
+  to train an LM on your filtered data. You should not modify the training logic, since
+  your leaderboard submission must use it exactly.
+- [`./cs336_data`](./cs336_data): This folder is basically empty! This is the
+  module where you will implement code to filter and process the data.
 
 Visually, it should look something like:
 
 ``` sh
 .
-├── cs336-basics # Files from assignment 1, feel free to make optimizations 
-│   ├── cs336_basics # A python module named cs336_basics
-│   │   ├── __init__.py
-│   │   ├── VERSION
-│   │   └── ... other files in the cs336_basics module, taken from assignment 1 ...
-│   ├── requirements.txt
-│   └── setup.py (setup.py to install `cs336_basics`) 
-├── cs336-data # TODO(you):code that you'll write for assignment 2
-│   ├── cs336_data # A python module named cs336_data
-│   │   ├── __init__.py
-│   │   ├── VERSION
-│   │   └── ... TODO(you): other python files that you need for assignment 2 ...
-│   ├── requirements.txt
-│   ├── ... TODO(you): any other files or folders you need for assignment 2 ...
-│   └── setup.py (setup.py to install `cs336_data`)
+├── cs336_basics  # A python module named cs336_basics
+│   └── ... an optimized training implementation ...
+├── cs336_data  # TODO(you): code that you'll write for assignment 4
+│   ├── __init__.py
+│   └── ... TODO(you): any other files or folders you need for assignment 4 ...
 ├── README.md
-└── ... TODO(you): other files or folders you need for assignment 2 ...
+├── pyproject.toml
+└── ... TODO(you): other files or folders you need for assignment 4 ...
 ```
 
-1. Set up a conda environment and install packages. In particular, the
-   `cs336-basics` package (located at [`./cs336-basics`](./cs336-basics))
-   installs the `cs336_basics` module, and the `cs336-data` package (located
-   at [`./cs336-data`](./cs336-data)) installs the `cs336_data` module.
+As in previous assignments, we use `uv` to manage dependencies.
 
-``` sh
-conda create -n cs336_data python=3.10 --yes
-conda activate cs336_data
-pip install -e ./cs336-basics/ -e ./cs336-data/'[test]'
-```
+## Submitting
 
-2. Activate the environment:
+To submit, run `./test_and_make_submission.sh` . This script will install your
+code's dependencies, run tests, and create a gzipped tarball with the output. We
+should be able to unzip your submitted tarball and run
+`./test_and_make_submission.sh` to verify your test results.
 
-``` sh
-conda activate cs336_data
-```
 
-## ECE491B Assignment instructions
+## ECE405 Assignment instructions
 
-Follow along the [CS336@Stanford handout](./cs336_spring2024_assignment4_data.pdf) with small deviations:
-1. What the code looks like: clone https://github.com/igormolybog/s2025-assignment2-data.git
-2. How to submit: You will submit the report on the assignment to [Assignment Submission Form](https://forms.gle/CSRweWjuBxvYbb9MA). The code does not have to be attached as long as you include links to the main GitHub branch where your code lives and links to all of the Colab notebooks if applicable.
+Follow along the [CS336@Stanford handout](./cs336_spring2025_assignment4_data.pdf) with small deviations:
+1. What the code looks like: clone https://github.com/igormolybog/ece405-assignment2-data.git
+2. How to submit: You will submit the report on the assignment to [Assignment Submission Form](https://docs.google.com/forms/d/e/1FAIpQLScJg_QkwjKux3xKeM-EOmZyvA6zlbVIrf_lxN_qoCFoxdqTrg/viewform?usp=sharing&ouid=111841773839267096112). The code does not have to be attached as long as you include links to the main GitHub branch where your code lives and links to all of the Colab notebooks if applicable.
     - You don't need to submit to leaderboard.
 3. None of the data or tools are pre-downloaded or pre-installed for you. The handout describes the steps to get them (e.g. download specific WARC files or fastText library). You should follow the steps yourself.
 4. You can use warcio library (ArchiveIterator) to iterate through WARC.
